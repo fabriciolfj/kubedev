@@ -35,3 +35,11 @@ snap install multipass
 **ACESSANDO REMOTAMENTE**
 
 - multipass exec k8s -- /snap/bin/microk8s.kubectl config view --raw (vai imprimir as configurações)
+
+**ADICIONANDO UM NÓ**
+
+- multipass shell k82, microk8s add-node
+
+**REMOVENDO UM NÓ**
+
+- multipass shell k8s, microk8s remove-node k8s2
