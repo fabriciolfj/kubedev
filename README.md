@@ -18,6 +18,7 @@ snap install multipass
 - multipass delete k8s
 - multipass recover k8s
 - multipass start k8s
+- multipass delete k8s depois multipass purge, para eliminar realmente.
 
 
 
