@@ -23,5 +23,15 @@ snap install multipass
 **INSTALANDO AMBIENTE KUBERNETES DENTRO DO MULTIPASS**
 
 - multipass exec k8s -- sudo snap install microk8s --classic --channel=1.18/stable
+- multipass exec k8s -- sudo usermod -a -G microk8s ubuntu
+- multipass exec k8s -- sudo chown -f -R ubuntu ~/.kube
+- multipass restart k8s
 
+**TESTANDO AMBIENTE**
 
+- multipass exec k8s -- /snap/bin/microk8s.kubectl create deployment nginx --image=nginx
+- multipass exec k8s -- /snap/bin/microk8s.kubectl get pods
+
+**ACESSANDO REMOTAMENTE**
+
+- multipass exec k8s -- /snap/bin/microk8s.kubectl config view --raw (vai imprimir as configurações)
