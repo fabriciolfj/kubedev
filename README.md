@@ -20,5 +20,8 @@ snap install multipass
 - multipass start k8s
 - multipass delete k8s depois multipass purge, para eliminar realmente.
 
+**INSTALANDO AMBIENTE KUBERNETES DENTRO DO MULTIPASS**
+
+- multipass exec k8s -- sudo snap install microk8s --classic --channel=1.18/stable
 
 
