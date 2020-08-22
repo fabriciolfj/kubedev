@@ -16,6 +16,8 @@ snap install multipass
 - multipass umount k8s (retirar o mapeamento)
 - multipass info k8s
 - multipass delete k8s
+- multipass recover k8s
+- multipass start k8s
 
 
 
