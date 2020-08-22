@@ -43,3 +43,4 @@ snap install multipass
 **REMOVENDO UM NÓ**
 
 - multipass shell k8s, microk8s remove-node k8s2
+- multipass hell k8s2, microk8s leave
