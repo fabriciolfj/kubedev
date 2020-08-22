@@ -46,5 +46,5 @@ snap install multipass
 - multipass hell k8s2, microk8s leave
 
 ###### Azure
- - az login 
-
+- az login 
+- az aks get-credentials --resource-group kubedev --name kubedev --overwrite-existing (baixar as credenciais)
