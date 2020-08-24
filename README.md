@@ -45,6 +45,10 @@ snap install multipass
 - multipass shell k8s, microk8s remove-node k8s2
 - multipass hell k8s2, microk8s leave
 
+**HABILITANDO RECURSOS**
+- microk8s.enable ingress
+- microk8s enable dns
+
 ###### Azure
 - az login 
 - az aks get-credentials --resource-group kubedev --name kubedev --overwrite-existing (baixar as credenciais)
