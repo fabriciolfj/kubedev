@@ -62,5 +62,5 @@ kubectl api-resources
 
 ###### Redirecionando porta
 ```
-kubectl port-forward pod/nome portapod:porhost
+kubectl port-forward pod/nome portalocal:portapod
 ```
