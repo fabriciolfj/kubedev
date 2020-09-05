@@ -64,3 +64,18 @@ kubectl api-resources
 ```
 kubectl port-forward pod/nome portalocal:portapod
 ```
+
+###### Selecionando com base na label
+```
+kubectl get pods -l versao=verde
+```
+
+###### Aumentando o número de replcias.
+```
+kubectl scale replicaset nome do replicaset --replicas=10
+```
+
+###### comandos diversos
+```
+kubectl get pods -o wide ## para mostrar mais detalhes do pod
+```
