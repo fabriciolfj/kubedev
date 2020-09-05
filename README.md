@@ -75,6 +75,16 @@ kubectl get pods -l versao=verde
 kubectl scale replicaset nome do replicaset --replicas=10
 ```
 
+###### Realizar rollout no deployment (voltar a versão)
+```
+kubectl rollout undo deployment meuprimeirodeployment
+```
+
+###### Mudando a imagem do deployment via linha de comando.
+```
+kubectl set image deployment meuprimeirodeployment meucontainer=kubedevio/nginx-color:blue
+```
+
 ###### comandos diversos
 ```
 kubectl get pods -o wide ## para mostrar mais detalhes do pod
