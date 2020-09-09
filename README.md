@@ -52,3 +52,40 @@ snap install multipass
 ###### Azure
 - az login 
 - az aks get-credentials --resource-group kubedev --name kubedev --overwrite-existing (baixar as credenciais)
+
+## Iniciando kubernetes
+
+- Ao criar o manifesto, para saber qual api version utilizar em qual recurso, execute o comando abaixo e veja se possui algum dado na coluna apigroup. Caso esteja ausente, use v1.
+```
+kubectl api-resources
+```
+
+###### Redirecionando porta
+```
+kubectl port-forward pod/nome portalocal:portapod
+```
+
+###### Selecionando com base na label
+```
+kubectl get pods -l versao=verde
+```
+
+###### Aumentando o número de replcias.
+```
+kubectl scale replicaset nome do replicaset --replicas=10
+```
+
+###### Realizar rollout no deployment (voltar a versão)
+```
+kubectl rollout undo deployment meuprimeirodeployment
+```
+
+###### Mudando a imagem do deployment via linha de comando.
+```
+kubectl set image deployment meuprimeirodeployment meucontainer=kubedevio/nginx-color:blue
+```
+
+###### comandos diversos
+```
+kubectl get pods -o wide ## para mostrar mais detalhes do pod
+```
