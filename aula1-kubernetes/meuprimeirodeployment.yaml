@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meuprimeirodeployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: exemplo
+  template:
+    metadata:
+      labels:
+        app: exemplo
+    spec:
+      containers:
+      - name: meucontainer
+        image: kubedevio/nginx-color:green
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080

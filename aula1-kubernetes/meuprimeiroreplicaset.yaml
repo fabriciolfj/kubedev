@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: meuprimeiroreplicaset
+spec: ## do meu replicaset
+  replicas: 10
+  selector: ## vou selecionar a especificação do meu pod
+    matchLabels:
+      app: exemplo
+  template:
+    metadata:
+      labels: ## especificacao selecionada
+        app: exemplo
+    spec: ## do meu pod
+      containers:
+        - name: meucontainer
+          image: kubedevio/nginx-color:green
