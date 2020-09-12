@@ -89,3 +89,8 @@ kubectl set image deployment meuprimeirodeployment meucontainer=kubedevio/nginx-
 ```
 kubectl get pods -o wide ## para mostrar mais detalhes do pod
 ```
+
+###### Listando todos os deployments de todos os namespaces
+```
+kubectl get deployments --all-namespaces
+```
