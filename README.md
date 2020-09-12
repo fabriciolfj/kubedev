@@ -100,3 +100,14 @@ kubectl get deployments --all-namespaces
 http://nome do serviço.nome do namespace.svc.cluster.local
 http://service-nginx-color.blue.svc.cluster.local
 ```
+Para simplicicar o acesso, posso criar um service do tipo ExternalName:
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-nginx-green
+spec:
+  type: ExternalName
+  externalName: service-nginx-color.green.svc.cluster.local
+
+```
