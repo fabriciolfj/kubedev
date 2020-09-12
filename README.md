@@ -94,3 +94,9 @@ kubectl get pods -o wide ## para mostrar mais detalhes do pod
 ```
 kubectl get deployments --all-namespaces
 ```
+
+###### Para acessar o serviço que está em outro namespace
+```
+http://nome do serviço.nome do namespace.svc.cluster.local
+http://service-nginx-color.blue.svc.cluster.local
+```
