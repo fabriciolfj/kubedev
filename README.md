@@ -111,3 +111,7 @@ spec:
   externalName: service-nginx-color.green.svc.cluster.local
 
 ```
+###### Para ver quais recursos não são separados por namespace
+```
+kubectl api-resources --namespaced=false
+```
