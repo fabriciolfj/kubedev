@@ -48,6 +48,7 @@ snap install multipass
 **HABILITANDO RECURSOS**
 - microk8s.enable ingress
 - microk8s enable dns
+- microk8s.enable storage
 
 ###### Azure
 - az login 
