@@ -15,17 +15,20 @@ spec:
       - name: api
         image: fabricio211/pedelogo-catalogo:v1.0.0
         imagePullPolicy: IfNotPresent
+        envFrom:
+          - configMapRef:
+              name: api-configmap
         env:
-        - name: Mongo__Host
-          value: "mongodb-service"
         - name: Mongo__User
-          value: "mongouser"
+          valueFrom:
+            secretKeyRef:
+              key: MONGO_INITDB_ROOT_USERNAME
+              name: mongodb-secret
         - name: Mongo__Password
-          value: "mongopwd"
-        - name: Mongo__Port
-          value: "27017"
-        - name: Mongo__DataBase
-          value: "admin"
+          valueFrom:
+            secretKeyRef:
+              key: MONGO_INITDB_ROOT_PASSWORD
+              name: mongodb-secret
         resources:
           requests:
             memory: "32Mi"
