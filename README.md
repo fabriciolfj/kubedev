@@ -89,3 +89,37 @@ kubectl set image deployment meuprimeirodeployment meucontainer=kubedevio/nginx-
 ```
 kubectl get pods -o wide ## para mostrar mais detalhes do pod
 ```
+
+###### Listando todos os deployments de todos os namespaces
+```
+kubectl get deployments --all-namespaces
+```
+
+###### Para acessar o serviço que está em outro namespace
+```
+http://nome do serviço.nome do namespace.svc.cluster.local
+http://service-nginx-color.blue.svc.cluster.local
+```
+Para simplicicar o acesso, posso criar um service do tipo ExternalName:
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-nginx-green
+spec:
+  type: ExternalName
+  externalName: service-nginx-color.green.svc.cluster.local
+
+```
+###### Para ver quais recursos não são separados por namespace
+```
+kubectl api-resources --namespaced=false
+```
+
+##### Criando configmap e secret via comando
+```
+kubectl create configmap literal-configmap --from-literal=Mongo__Host=mongodb-service (usando chave valor)
+kubectl create confimap file-configmap --from-file=prometheus.yaml (via arquivo)
+kubectl create secret generic literal-secret --from-literal=MONGO_PWD=mongopwd (usando chave valor)
+kubectl create secret generic file-secret --from-file=password.txt (via arquivo)
+```
