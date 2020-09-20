@@ -61,6 +61,11 @@ snap install multipass
 kubectl api-resources
 ```
 
+###### Apply recursivo
+```
+kubectl apply -f ./ -R
+```
+
 ###### Redirecionando porta
 ```
 kubectl port-forward pod/nome portalocal:portapod
