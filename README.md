@@ -48,6 +48,8 @@ snap install multipass
 **HABILITANDO RECURSOS**
 - microk8s.enable ingress
 - microk8s enable dns
+- microk8s.enable storage
+- microk8s enable metrics-server
 
 ###### Azure
 - az login 
@@ -58,6 +60,11 @@ snap install multipass
 - Ao criar o manifesto, para saber qual api version utilizar em qual recurso, execute o comando abaixo e veja se possui algum dado na coluna apigroup. Caso esteja ausente, use v1.
 ```
 kubectl api-resources
+```
+
+###### Apply recursivo
+```
+kubectl apply -f ./ -R
 ```
 
 ###### Redirecionando porta
