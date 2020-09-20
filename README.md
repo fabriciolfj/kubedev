@@ -50,6 +50,7 @@ snap install multipass
 - microk8s enable dns
 - microk8s.enable storage
 - microk8s enable metrics-server
+- microk8s.enable istio
 
 ###### Azure
 - az login 
