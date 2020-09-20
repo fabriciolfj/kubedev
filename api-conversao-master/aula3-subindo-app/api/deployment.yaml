@@ -13,8 +13,8 @@ spec:
     spec:
       containers:
       - name: api
-        image: fabricio211/pedelogo-catalogo:v1.0.0
-        imagePullPolicy: IfNotPresent
+        image: fabricioveronez/pedelogo-catalogo:v1.0.0
+        imagePullPolicy: Always
         envFrom:
           - configMapRef:
               name: api-configmap
@@ -31,13 +31,30 @@ spec:
               name: mongodb-secret
         resources:
           requests:
-            memory: "32Mi"
-            cpu: "100m"
+            memory: "320Mi"
+            cpu: "300m"
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: "320Mi"
+            cpu: "300m"
         ports:
         - containerPort: 80
           name: http
         - containerPort: 443
           name: https
+        readinessProbe:
+          httpGet:
+            port: 80
+            path: /read
+          initialDelaySeconds: 30
+          periodSeconds: 10 #de quanto em quanto tempo vou realizar esse test
+          timeoutSeconds: 1
+          failureThreshold: 3 # quantas vezes vou considerar erro, antes de restartar meu container.
+        livenessProbe:
+          httpGet:
+            port: 80
+            path: /health
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10 #de quanto em quanto tempo vou realizar esse test
+          timeoutSeconds: 1
+          failureThreshold: 3 # quantas vezes vou considerar erro, antes de restartar meu container.
