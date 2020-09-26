@@ -131,3 +131,15 @@ kubectl create confimap file-configmap --from-file=prometheus.yaml (via arquivo)
 kubectl create secret generic literal-secret --from-literal=MONGO_PWD=mongopwd (usando chave valor)
 kubectl create secret generic file-secret --from-file=password.txt (via arquivo)
 ```
+
+
+###### Persistent volume
+
+- Uso o persistent volume, vinculo a um persistent claim e vinculo este a um deployment.
+- Para uso em multiplos nodes, use um storageclass, onde criará um pv dinâmico e distributído (os serviços de number provêm tal recurso).
+Comandos:
+```
+kubectl get storageclass
+kubectl get pv
+kubectl get pvc
+```
