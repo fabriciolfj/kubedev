@@ -149,3 +149,9 @@ kubectl get storageclass
 kubectl get pv
 kubectl get pvc
 ```
+###### Recursos que são ou não separados por namespace
+
+```
+kubectl api-resources --namespaced=false ou true
+```
+
