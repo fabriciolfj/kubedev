@@ -134,7 +134,7 @@ kubectl create secret generic file-secret --from-file=password.txt (via arquivo)
 
 ##### Os dados devem ser em base 64
 ```
-echo  'linuxhint.com' | base64
+echo -n 'linuxhint.com' | base64
 echo 'bGludXhoaW50LmNvbQo=' | base64 --decode
 ```
 
