@@ -176,3 +176,8 @@ Uso labels no meu node no cluster e seletores na especificação do meu pod, par
 ```
 kubectl label node k8s database=mongodb
 ```
+
+- Para adicionar a label:
+```
+kubectl label node k8s database-
+```
