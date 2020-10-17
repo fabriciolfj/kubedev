@@ -183,4 +183,4 @@ kubectl label node k8s database-
 ```
 
 ###### Node Affinity
-Crio regras de obrigatoriedade ou preferência, no que tange, em que node meu pod executará.
+Crio regras de obrigatoriedade ou preferência, no que tange, em que node meu pod executará.Exemplo: quero que o pod rode aonde possua hd ssd, mas se não existir, pode executar em um node com hd mecânico.
