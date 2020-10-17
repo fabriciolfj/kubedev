@@ -170,4 +170,9 @@ O statefulset, no caso de replicas acima de 1, ele inicia a próxima réplica ca
 ### Gerenciando a distribuição dos pods
 
 ###### Node selector
-Uso labels no meu nó no cluster e seletores na especificação do meu pod, para exigir que esse pod seja executado naquele nó.
+Uso labels no meu node no cluster e seletores na especificação do meu pod, para exigir que esse pod seja executado naquele node.
+
+- Adicionando um label ao node:
+```
+kubectl label node k8s database=mongodb
+```
