@@ -181,3 +181,6 @@ kubectl label node k8s database=mongodb
 ```
 kubectl label node k8s database-
 ```
+
+###### Node Affinity
+Crio regras de obrigatoriedade ou preferência, no que tange, em que node meu pod executará.
