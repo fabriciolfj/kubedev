@@ -155,3 +155,14 @@ kubectl get pvc
 kubectl api-resources --namespaced=false ou true
 ```
 
+###### StatefulSet -> outra forma de deploy
+Quando necessito uma forma mais ordenada/sequencial a escalabilidade dos meus pods ou querer um volume por pod. Outro ponto que o stateful possui é o padrão de nomenclatura: nome do replicaset - ordem que estão escaladas (nginx-1 por exemplo).
+O statefulset, no caso de replicas acima de 1, ele inicia a próxima réplica caso a anterior esteja up.
+
+
+###### DaemonSet -> garante o número de réplicas com base no número de nós
+
+##### Para rotinas batch
+- Job - executa uma rotina
+- CronJob - schedula uma rotina (use o site https://crontab-generator.org/ para geração do cron).
+
