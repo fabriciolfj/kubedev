@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: roleta-job
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Replace #caso de 1 minuto e não terminou a execução da job, ele mata e começa a nova.
+  jobTemplate:
+    spec:
+      backoffLimit: 20 # tentativas de erros
+      parallelism: 2 # executar me paralelo
+      completions: 3 #tenho que completar 3 vezes essa tarefa para falar que está concluida
+      template:
+        spec:
+          restartPolicy: Never #define o que eu faço quando tenho algum erro no pod, em caso de erro vai tentar 6 vezes
+          containers:
+            - name: job
+              image: kubedevio/roleta
+              args:
+                - "-w"
+                - "5"
+                - "-c"
+                - "2"
+                - "-m"
+                - "5"
