@@ -4,7 +4,7 @@ metadata:
   name: roleta-job
 spec:
   schedule: "*/1 * * * *"
-  concurrencyPolicy: Replace #caso de 1 minuto e não terminou a execução da job, ele mata e começa a nova.
+  concurrencyPolicy: Replace #caso de 1 minuto e não terminou a execução da job, ele mata e começa a nova. Forbid ele vai ignorar a rodada, ou seja, nao vai subir uma nova job
   jobTemplate:
     spec:
       backoffLimit: 20 # tentativas de erros
