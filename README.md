@@ -164,5 +164,5 @@ O statefulset, no caso de replicas acima de 1, ele inicia a próxima réplica ca
 
 ##### Para rotinas batch
 - Job - executa uma rotina
-- CronJob - schedula uma rotina
+- CronJob - schedula uma rotina (use o site https://crontab-generator.org/ para geração do cron).
 
