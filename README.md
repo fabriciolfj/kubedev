@@ -166,3 +166,8 @@ O statefulset, no caso de replicas acima de 1, ele inicia a próxima réplica ca
 - Job - executa uma rotina
 - CronJob - schedula uma rotina (use o site https://crontab-generator.org/ para geração do cron).
 
+
+### Gerenciando a distribuição dos pods
+
+###### Node selector
+Uso labels no meu nó no cluster e seletores na especificação do meu pod, para exigir que esse pod seja executado naquele nó.
