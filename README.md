@@ -161,3 +161,8 @@ O statefulset, no caso de replicas acima de 1, ele inicia a próxima réplica ca
 
 
 ###### DaemonSet -> garante o número de réplicas com base no número de nós
+
+##### Para rotinas batch
+- Job - executa uma rotina
+- CronJob - schedula uma rotina
+
