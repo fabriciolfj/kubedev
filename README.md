@@ -155,3 +155,6 @@ kubectl get pvc
 kubectl api-resources --namespaced=false ou true
 ```
 
+###### StatefulSet -> outra forma de deploy
+Quando necessito uma forma mais ordenada/sequencial a escalabilidade dos meus pods ou querer um volume por pod. Outro ponto que o stateful segue o seguindo padrão de nomenclatura: nome do replicaset - ordem que estão escaladas (nginx-1 por exemplo).
+
