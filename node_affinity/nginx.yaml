@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: prioridade
+                  operator: Exists
+          preferredDuringSchedulingIgnoredDuringExecution: #é preferivel a condição, se não existir ele vai fazer o scheduler mesmo assim
+          - weight: 1 #peso da condição
+            preference:
+              matchExpressions:
+                - key: prioridade
+                  operator: In
+                  values:
+                    - "1"
+          #requiredDuringSchedulingIgnoredDuringExecution:  se nao tiver a expressão, nao vai fazer o scheduler do pod no nós
+            #nodeSelectorTerms:
+             # - matchExpressions:
+             #   - key: prioridade
+             #     operator: In #DoesNotExist, nodes que não existe a label prioridade
+             #     values:
+             #       - "1"
+             #       - "2"

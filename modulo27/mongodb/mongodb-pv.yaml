@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: host-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce # so mais ser escrito e ligo por um nó
+  persistentVolumeReclaimPolicy: Retain #vai reter esse volume DElete iria escluir e o Recycle, ele faz amount e mount quando não esta em uso ou em uso
+  hostPath:
+    path: "/volumes/mongodb"
