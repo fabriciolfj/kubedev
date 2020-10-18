@@ -27,6 +27,11 @@ snap install multipass
 - multipass exec k8s -- sudo chown -f -R ubuntu ~/.kube
 - multipass restart k8s
 
+**MONTANDO UM CLUSTER**
+- Crie 2 maquinas e cada uma ja instalada no microk8s
+- Entre no master e execute: microk8s add-node e copie o join
+- Entre no node filho e execute: microk8s join 10.249.20.132:25000/QaOdTZSVnyKWVioYSiGqrHpxhzENAaRI (join vindo do master)
+
 **TESTANDO AMBIENTE**
 
 - multipass exec k8s -- /snap/bin/microk8s.kubectl create deployment nginx --image=nginx
