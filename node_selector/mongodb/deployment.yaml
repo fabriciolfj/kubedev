@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:4.2.8
+        volumeMounts:
+          - mountPath: /data/db
+            name: mongo-data
+        resources:
+          requests:
+            memory: "320Mi"
+            cpu: "500m"
+          limits:
+            memory: "320Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017
+        envFrom:
+          - secretRef:
+              name: mongodb-secret
+      volumes:
+        - name: mongo-data
+          hostPath: #nao se usa
+            path: /volumes/mongodb
+      nodeSelector:
+        database: mongodb #label que encontra-se la no node, para vincular esse deployment nele.

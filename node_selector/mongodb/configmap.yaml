@@ -1,0 +1,8 @@
+#não usar, vamos usar o secret
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongodb-configmap
+data:
+  MONGO_INITDB_ROOT_USERNAME: mongouser
+  MONGO_INITDB_ROOT_PASSWORD: mongopwd

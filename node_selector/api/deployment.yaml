@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: fabricioveronez/pedelogo-catalogo:v1
+        imagePullPolicy: Always
+        envFrom:
+          - configMapRef:
+              name: api-configmap
+        env:
+        - name: Mongo__User
+          valueFrom:
+            secretKeyRef:
+              key: MONGO_INITDB_ROOT_USERNAME
+              name: mongodb-secret
+        - name: Mongo__Password
+          valueFrom:
+            secretKeyRef:
+              key: MONGO_INITDB_ROOT_PASSWORD
+              name: mongodb-secret
+        resources:
+          requests:
+            memory: "320Mi"
+            cpu: "300m"
+          limits:
+            memory: "320Mi"
+            cpu: "300m"
+        ports:
+        - containerPort: 80
+          name: http
+        - containerPort: 443
+          name: https
+        readinessProbe:
+          httpGet:
+            port: 80
+            path: /read
+          initialDelaySeconds: 30
+          periodSeconds: 10 #de quanto em quanto tempo vou realizar esse test
+          timeoutSeconds: 1
+          failureThreshold: 3 # quantas vezes vou considerar erro, antes de restartar meu container.
+        livenessProbe:
+          httpGet:
+            port: 80
+            path: /health
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10 #de quanto em quanto tempo vou realizar esse test
+          timeoutSeconds: 1
+          failureThreshold: 3 # quantas vezes vou considerar erro, antes de restartar meu container.

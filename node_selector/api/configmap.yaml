@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-configmap
+data:
+  Mongo__DataBase: admin
+  Mongo__Host: mongodb-service
+  Mongo__Port: "27017"
