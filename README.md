@@ -189,3 +189,6 @@ kubectl label node k8s database-
 
 ###### Node Affinity
 Crio regras de obrigatoriedade ou preferência, no que tange, em que node meu pod executará.Exemplo: quero que o pod rode aonde possua hd ssd, mas se não existir, pode executar em um node com hd mecânico.
+
+###### Pode affinity e Pode Antiaffinity
+Regras de afinidade direto no pod, afim de definir para qual node o mesmo será schedulado. Exemplo: quero que meu pode seja schedulado, no mesmo node do redis.
