@@ -192,3 +192,9 @@ Crio regras de obrigatoriedade ou preferência, no que tange, em que node meu po
 
 ###### Pode affinity e Pode Antiaffinity
 Regras de afinidade direto no pod, afim de definir para qual node o mesmo será schedulado. Exemplo: quero que meu pode seja schedulado, no mesmo node do redis.
+
+###### Taint e Tolerations
+Cria uma antiafinidade baseada no node, ou seja, o node que defini qual pode será executado nele. Exsitem 3 tipos de efeitos:
+- no execute -> não seja executado no node. Há casos que foi agendado mas não será executado.
+- before no scheduled -> o pod preferêncialmente não seja agendade neste node.
+- no scheduled -> jamais seja agendade no node.
