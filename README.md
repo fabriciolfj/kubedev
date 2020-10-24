@@ -198,3 +198,12 @@ Cria uma antiafinidade baseada no node, ou seja, o node que defini qual pode ser
 - no execute -> não seja executado no node. Há casos que foi agendado mas não será executado.
 - before no scheduled -> o pod preferêncialmente não seja agendade neste node.
 - no scheduled -> jamais seja agendade no node.
+
+Tolerations: para o pod conseguir ser executado dentro de um taint, precisamos de um tolerations. Configuração:
+```
+tolerations:
+        - key: "special" 
+          operator: "Equal"
+          value: "valor1"
+          effect: "NoExecute" tolero node onde tenha um traint, com chave special, com valor equal valor1.
+````
