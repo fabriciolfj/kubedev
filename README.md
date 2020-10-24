@@ -40,6 +40,7 @@ snap install multipass
 **ACESSANDO REMOTAMENTE**
 
 - multipass exec k8s -- /snap/bin/microk8s.kubectl config view --raw (vai imprimir as configurações)
+- abra a pasta .kube e no arquivo config, cole os dados.
 
 **ADICIONANDO UM NÓ**
 
