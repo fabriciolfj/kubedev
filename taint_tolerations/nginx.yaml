@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+          requests:
+            memory: "320Mi"
+            cpu: "100m"
+          limits:
+            memory: "320Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 80
+      tolerations:
+        - key: "special"
+          operator: "Equal"
+          value: "valor1"
+          effect: "NoExecute"
+          tolerationSeconds: 60 #quanto tempo de tolerancia, os seja,se eu colocar 60s, ele vai esperar esse tempo para ser reagendado
+
+#kubectl taint nodes nome_do_node special=valor1:NoSchedule nao agenda novos pods, mas deixa os que se encontram.
+#kubectl taint nodes nome_do_node special=valor1:NoExecute não agenda novos e para os que estão sendo executados
+#escalando: kubectl scale deployment nginx --replicas 10
