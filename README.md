@@ -216,3 +216,8 @@ tolerations:
 Inserir regras na comunicação entre pods, ou seja, bloqueio quem não pode ser acessado ou libero acesso a determinados pods.
 Para habilitar o netowrk policy no microk8s, execute o comando abaixo:
 -  microk8s.enable cilium
+
+Para listar os networks policy
+```
+kubectl get networkpolicy
+```
