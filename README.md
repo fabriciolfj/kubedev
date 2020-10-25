@@ -260,6 +260,13 @@ kubectl descibre pod nome-do-pod, vá na linha Mounts:
 terá esse valor: /var/run/secrets/kubernetes.io/serviceaccount from default-token-xksdn (ro)
 Execute o pod em modo iterativo, e navegue até esse diretório e execute um cat no arquivo token.
 ```
+
+###### Role
+Permissões que meu Pod poderá ter a nível de namespace
+
+###### RoleBinding
+Vinculo meu Role ao meu ServiceAccount.
+
 ###### Modo iterativo com pod
 ```
 kubectl exec -i --tty k8s-dashboard-deploy-548794d697-c46td  -- /bin/bash
