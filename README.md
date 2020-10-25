@@ -272,3 +272,8 @@ Vinculo meu Role ao meu ServiceAccount.
 kubectl exec -i --tty k8s-dashboard-deploy-548794d697-c46td  -- /bin/bash
 ```
 
+###### ClusterRole
+Permissionamento a nivel de cluster
+
+###### ClusterBinding
+Ligação do meu ClusterRole ao service account
