@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole #nivel de cluster #Role - nivel de namespace
+metadata:
+  name: dashboard-reader
+rules:
+  - apiGroups: [""] #grupo de apis que vou utilizar para criar ou acessar algum objeto. kubectl api-resources, coluna apigroup, quando não tem nada fica fazio
+    resources: ["pods", "services"]
+    verbs: ["get", "list", "watch"] #tipo de permissionamento, exemplo: GET, LIST, UPDATE, CREATE, DELETE, WATCH(observar) e etc
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["get", "list", "watch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding #RoleBinding
+metadata:
+  name: dashboard-reader-binding
+subjects:
+- kind: ServiceAccount #esta vinculado a esse service account
+  name: user-dashboard
+  namespace: teste
+roleRef:
+  kind: ClusterRole #Role #estou vinculando essa roule ao service account acima
+  name: dashboard-reader
+  apiGroup: rbac.authorization.k8s.io

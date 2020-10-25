@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: nginx-policy
+spec: # selecionar quem será afetado
+  podSelector:
+    matchLabels:
+      app: nginx
+  policyTypes:
+    - Ingress #entrada
+    - Egress #saida
+  ingress:
+    - from:
+      - ipBlock:
+          cidr: 172.17.0.0/16 #bloqueando um range d eips
+          except:
+            - null
+      - podSelector: #considero apenas pods deste namespace
+          matchLabels:
+            app: ubuntu
+        namespaceSelector: #desse namepsace
+          matchLabels:
+            ns: nginx
+      ports:
+        - port: 80
+        - protocol: TCP
+  egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            app: ubuntu
+        namespaceSelector:
+          matchLabels:
+            ns: nginx
+      ports:
+        - port: 80
+        - protocol: TCP
