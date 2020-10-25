@@ -208,3 +208,6 @@ tolerations:
           value: "valor1"
           effect: "NoExecute" tolero node onde tenha um traint, com chave special, com valor equal valor1.
 ````
+
+###### network policy
+Inserir regras na comunicação entre pods, ou seja, bloqueio quem não pode ser acessado ou libero acesso a determinados pods.
