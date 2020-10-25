@@ -233,7 +233,7 @@ Observação:
           matchLabels:
             ns: nginx
 ```
-acima: aceito os labels com ubuntu no namespace nginx
+acima: aceito os pods com labels ubuntu no namespace nginx
 ```
   ingress:
     - from:
@@ -244,4 +244,4 @@ acima: aceito os labels com ubuntu no namespace nginx
           matchLabels:
             ns: nginx
 ```
-acima: aceito os labels com ubuntu ou qualquer chamada do namespace nginx
+acima: aceito os pods com labels ubuntu ou qualquer chamada do namespace nginx
