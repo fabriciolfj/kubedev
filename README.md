@@ -256,6 +256,6 @@ kubectl get secrets
 ```
 ###### Modo iterativo com pod
 ```
- kubectl exec -i --tty k8s-dashboard-deploy-548794d697-c46td  -- /bin/bash
+kubectl exec -i --tty k8s-dashboard-deploy-548794d697-c46td  -- /bin/bash
 ```
 
