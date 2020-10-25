@@ -279,6 +279,6 @@ Permissionamento a nivel de cluster
 Ligação do meu ClusterRole ao service account
 
 ###### Ingress controller
-Faz o papel do proxy reverso, ou seja, um servidor de rede (proxy) na frente do servidor web.
+Faz o papel do proxy reverso, ou seja, um servidor de rede (proxy) na frente do servidor web, para resolução de nomes e redirecionamento de rotas.
 Exemplo: nginx.
 
