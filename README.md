@@ -221,3 +221,27 @@ Para listar os networks policy
 ```
 kubectl get networkpolicy
 ```
+Observação:
+
+```
+  ingress:
+    - from:
+      - podSelector: #considero apenas pods deste namespace
+          matchLabels:
+            app: ubuntu
+        namespaceSelector: #desta forma consigo acessar esse pod de outro namepsace
+          matchLabels:
+            ns: nginx
+```
+acima: aceito os labels com ubuntu no namespace nginx
+```
+  ingress:
+    - from:
+      - podSelector: #considero apenas pods deste namespace
+          matchLabels:
+            app: ubuntu
+      - namespaceSelector: #desta forma consigo acessar esse pod de outro namepsace
+          matchLabels:
+            ns: nginx
+```
+acima: aceito os labels com ubuntu ou qualquer chamada do namespace nginx
