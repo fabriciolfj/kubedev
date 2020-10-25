@@ -277,3 +277,8 @@ Permissionamento a nivel de cluster
 
 ###### ClusterBinding
 Ligação do meu ClusterRole ao service account
+
+###### Ingress controller
+Faz o papel do proxy reverso, ou seja, um servidor de rede (proxy) na frente do servidor web.
+Exemplo: nginx.
+
