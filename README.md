@@ -254,6 +254,12 @@ acima: aceito os pods com labels ubuntu ou qualquer chamada do namespace nginx
 ```
 kubectl get secrets
 ```
+- Para ver aonde encontra-se o token do secret do meu pod, execute os passos abaixo:
+```
+kubectl descibre pod nome-do-pod, vá na linha Mounts: 
+terá esse valor: /var/run/secrets/kubernetes.io/serviceaccount from default-token-xksdn (ro)
+Execute o pod em modo iterativo, e navegue até esse diretório e execute um cat no arquivo token.
+```
 ###### Modo iterativo com pod
 ```
 kubectl exec -i --tty k8s-dashboard-deploy-548794d697-c46td  -- /bin/bash
