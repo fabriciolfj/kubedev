@@ -250,4 +250,12 @@ acima: aceito os pods com labels ubuntu ou qualquer chamada do namespace nginx
 - Conta própria do pod
 - É boa prática criar um service account, com o minimo de permissão possível.
 - Refinamento de permissões: RBAC, baseadas em regras (roles) e bindings (liga a permissão ao service account)
+- Sempre que crio um pod e não específico um service account, cria-se um default automaticamente.
+```
+kubectl get secrets
+```
+###### Modo iterativo com pod
+```
+ kubectl exec -i --tty k8s-dashboard-deploy-548794d697-c46td  -- /bin/bash
+```
 
