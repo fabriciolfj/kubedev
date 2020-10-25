@@ -78,6 +78,9 @@ kubectl apply -f ./ -R
 ```
 kubectl port-forward pod/nome portalocal:portapod
 ```
+```
+kubectl port-forward service/nome portalocal:portapod
+```
 
 ###### Selecionando com base na label
 ```
