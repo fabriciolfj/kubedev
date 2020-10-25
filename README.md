@@ -78,6 +78,9 @@ kubectl apply -f ./ -R
 ```
 kubectl port-forward pod/nome portalocal:portapod
 ```
+```
+kubectl port-forward service/nome portalocal:portapod
+```
 
 ###### Selecionando com base na label
 ```
@@ -208,3 +211,64 @@ tolerations:
           value: "valor1"
           effect: "NoExecute" tolero node onde tenha um traint, com chave special, com valor equal valor1.
 ````
+
+###### network policy
+Inserir regras na comunicação entre pods, ou seja, bloqueio quem não pode ser acessado ou libero acesso a determinados pods.
+Para habilitar o netowrk policy no microk8s, execute o comando abaixo:
+-  microk8s.enable cilium
+
+Para listar os networks policy
+```
+kubectl get networkpolicy
+```
+Observação:
+
+```
+  ingress:
+    - from:
+      - podSelector: #considero apenas pods deste namespace
+          matchLabels:
+            app: ubuntu
+        namespaceSelector: #desta forma consigo acessar esse pod de outro namepsace
+          matchLabels:
+            ns: nginx
+```
+acima: aceito os pods com labels ubuntu no namespace nginx
+```
+  ingress:
+    - from:
+      - podSelector: #considero apenas pods deste namespace
+          matchLabels:
+            app: ubuntu
+      - namespaceSelector: #desta forma consigo acessar esse pod de outro namepsace
+          matchLabels:
+            ns: nginx
+```
+acima: aceito os pods com labels ubuntu ou qualquer chamada do namespace nginx
+
+###### Service account
+- Conta própria do pod
+- É boa prática criar um service account, com o minimo de permissão possível.
+- Refinamento de permissões: RBAC, baseadas em regras (roles) e bindings (liga a permissão ao service account)
+- Sempre que crio um pod e não específico um service account, cria-se um default automaticamente.
+```
+kubectl get secrets
+```
+- Para ver aonde encontra-se o token do secret do meu pod, execute os passos abaixo:
+```
+kubectl descibre pod nome-do-pod, vá na linha Mounts: 
+terá esse valor: /var/run/secrets/kubernetes.io/serviceaccount from default-token-xksdn (ro)
+Execute o pod em modo iterativo, e navegue até esse diretório e execute um cat no arquivo token.
+```
+
+###### Role
+Permissões que meu Pod poderá ter a nível de namespace
+
+###### RoleBinding
+Vinculo meu Role ao meu ServiceAccount.
+
+###### Modo iterativo com pod
+```
+kubectl exec -i --tty k8s-dashboard-deploy-548794d697-c46td  -- /bin/bash
+```
+
