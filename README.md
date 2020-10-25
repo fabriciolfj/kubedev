@@ -245,3 +245,9 @@ acima: aceito os pods com labels ubuntu no namespace nginx
             ns: nginx
 ```
 acima: aceito os pods com labels ubuntu ou qualquer chamada do namespace nginx
+
+###### Service account
+- Conta própria do pod
+- É boa prática criar um service account, com o minimo de permissão possível.
+- Refinamento de permissões: RBAC, baseadas em regras (roles) e bindings (liga a permissão ao service account)
+
