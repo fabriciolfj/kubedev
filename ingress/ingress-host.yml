@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-host
+spec:
+  rules:
+    - host: blue.aulakubedev.com.br
+      http:
+        paths:
+          - backend:
+              serviceName: blue-service
+              servicePort: 80
+    - host: green.aulakubedev.com.br
+      http:
+        paths:
+          - backend:
+              serviceName: green-service
+              servicePort: 80

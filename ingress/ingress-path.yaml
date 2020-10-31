@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-path
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: / #nao mandar o path final para o servico, no caso aulakubedev.com.br/blue, ele vai mandar para o service aulakubedev.com.br
+spec:
+  rules:
+    - host: aulakubedev.com.br
+      http:
+        paths:
+        - path: /blue
+          backend:
+            serviceName: blue-service
+            servicePort: 80
+        - path: /green
+          backend:
+            serviceName: green-service
+            servicePort: 80
