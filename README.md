@@ -283,3 +283,6 @@ Faz o papel do proxy reverso, ou seja, um servidor de rede (proxy) na frente do 
 Exemplo: nginx.
 - Para o microk8s, execute o comando: microk8s.enabled ingress ou faça a instalação bare metal
 - Outra opção seria instalar seguindo o site: https://kubernetes.github.io/ingress-nginx/deploy
+
+# HELM
+Um gerenciador de pacotes, com base em template (chamados de chart), que utilizo dentro do kubernetes.
