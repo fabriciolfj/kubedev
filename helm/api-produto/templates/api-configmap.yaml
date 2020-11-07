@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-api-configmap
+data:
+  Mongo__DataBase: {{ .Values.mongodb.database }}
+  Mongo__Host: {{ template "mongodb.serviceName" . }}
+  Mongo__Port: "27017"

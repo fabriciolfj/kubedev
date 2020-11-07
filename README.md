@@ -286,3 +286,55 @@ Exemplo: nginx.
 
 # HELM
 Um gerenciador de pacotes, com base em template (chamados de chart), que utilizo dentro do kubernetes.
+
+- Para adicionar uma repositório: helm repo add stable https://charts.helm.sh/stable
+- Para atualizar o repositório: helm repo update
+- Para listar os repositórios: helm repo list
+- Para remover: helm repo remove nome do repositório
+
+Montando um ambiente usando helm:
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm search repo ingress
+helm inspect all nome do chart (ingress-nginx/ingress-nginx)
+helm inspect values ingress-nginx/ingress-nginx > values.yaml (pegar as configurações para personalizar)
+helm install meu-ingress-controller ingress-nginx/ingress-nginx --namespace nome_do_ns
+helm list mostra aonde encontra-se instalados os repositorios
+helm list -n nome do namespace (mostra somente do namespace especifico)
+helm uninstall meu-ingress-controller ingress-nginx/ingress-nginx desinstalar
+```
+Mudando a configuração
+```
+helm upgrade meu-ingress-controller ingress-nginx/ingress-nginx --namespace nginx-ingress --values values.yaml
+helm history meu-ingress-controller -n nginx-ingress ver o histórico de mudanças
+helm rollback meu-ingress-controller -n nginx-ingress voltar a configuração anterior
+helm upgrade meu-ingress-controller ingress-nginx/ingress-nginx --namespace nginx-ingress --set controller.replicaCount=2 mudando diretamente
+helm rollback meu-ingress-controller 2 -n nginx-ingress voltar para uma revisao especifica
+```
+
+Criando um novo template
+```
+helm create api-produto
+```
+
+Para validar seu template
+```
+helm install minhaapi ./api-produto/ --dry-run --debug > teste.yaml (vai jogar o output para o arquivo teste.yaml)
+```
+Para instalar / atualizar
+```
+helm install minhaapi ./api-produto/
+helm upgrade minhaapi ./api-produto/
+```
+
+Para desinstalar 
+```
+helm uninstall minhaapi ./api-produto/
+```
+
+Ao usar dependencia, podemos incluir no arquivo chart e executar o comando abaixo:
+```
+helm dependency build ./api-produto/
+
+``

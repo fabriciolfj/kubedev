@@ -1,0 +1,15 @@
+mongodb:
+  auth:
+    rootPassword: mongoRoot
+    username: mongouser
+    password: mongopwd
+    database: admin
+  persistence:
+    enabled: false
+
+api:
+  serviceType: ClusterIP
+  image: fabricioveronez/pedelogo-catalogo:v1.0.0
+  ingress:
+  - aulakubedev.com.br
+  - api.aulakubedev.com.br
