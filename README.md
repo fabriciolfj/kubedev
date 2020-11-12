@@ -337,3 +337,6 @@ Ao usar dependencia, podemos incluir no arquivo chart e executar o comando abaix
 ```
 helm dependency build ./api-produto/
 ```
+
+###### SideCard
+- Containers auxiliares, como coleta de logs por exemplo, ou seja, para coletar logs do meu container principal rodando no meu pod.
