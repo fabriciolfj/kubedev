@@ -344,3 +344,5 @@ helm dependency build ./api-produto/
 ###### Ambassador
 - Container que lida com a comunicação entre serviços, ou seja, ele é uma ponte. obs: ele é um tipo de sidecar
 
+###### Operators
+- Processos para automatizar alguma operação, como bkp por exemplo.
