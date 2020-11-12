@@ -336,5 +336,4 @@ helm uninstall minhaapi ./api-produto/
 Ao usar dependencia, podemos incluir no arquivo chart e executar o comando abaixo:
 ```
 helm dependency build ./api-produto/
-
-``
+```
