@@ -346,3 +346,9 @@ helm dependency build ./api-produto/
 
 ###### Operators
 - Processos para automatizar alguma operação, como bkp por exemplo. Site: https://operatorhub.io/
+
+
+# Estratégias de deploy
+
+###### Recreate
+- Ele encerra todas as instancias, após finalizar esse processo, ele sobe as novas.
