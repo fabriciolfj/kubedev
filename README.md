@@ -340,3 +340,7 @@ helm dependency build ./api-produto/
 
 ###### SideCard
 - Containers auxiliares, como coleta de logs por exemplo, ou seja, para coletar logs do meu container principal rodando no meu pod.
+
+###### Ambassador
+- Container que lida com a comunicação entre serviços, ou seja, ele é uma ponte. 
+
