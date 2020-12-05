@@ -361,5 +361,5 @@ helm dependency build ./api-produto/
 - Comando para trocar a versão:
 
 ```
-kubectl patch service api-versao -p '{"spec":{"selector":{"version":"v2"}}}'
+kubectl patch service api-service -p '{"spec":{"selector":{"version":"v2"}}}'
 ```
