@@ -355,3 +355,6 @@ helm dependency build ./api-produto/
 
 ###### Ramped
 - É baseada na troca gradativa da versão antiga pela nova, ou seja, ir tirando a versão antiga e incluindo a nova.
+
+###### Blue / Grees
+- Troca total, ou seja, ele vai criando os pods novos em background, assim que tiverem ok, ele derruba o antigo e substitui pelos novos.
