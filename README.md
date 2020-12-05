@@ -352,3 +352,6 @@ helm dependency build ./api-produto/
 
 ###### Recreate
 - Ele encerra todas as instancias, após finalizar esse processo, ele sobe as novas.
+
+###### Ramped
+- É baseada na troca gradativa da versão antiga pela nova, ou seja, ir tirando a versão antiga e incluindo a nova.
