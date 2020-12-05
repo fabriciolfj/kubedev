@@ -358,3 +358,8 @@ helm dependency build ./api-produto/
 
 ###### Blue / Grees
 - Troca total, ou seja, ele vai criando os pods novos em background, assim que tiverem ok, ele derruba o antigo e substitui pelos novos.
+- Comando para trocar a versão:
+
+```
+kubectl patch service api-versao -p '{"spec":{"selector":{"version":"v2"}}}'
+```
