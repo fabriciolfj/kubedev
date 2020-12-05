@@ -367,3 +367,6 @@ kubectl patch service api-service -p '{"spec":{"selector":{"version":"v2"}}}'
 ###### Canary
 - Colocar a nova versão com a versão atual, exemplo: a cada 10 requisições que chegar, uma vai para a nova versão, e conforme o sucesso, isso vai aumentando até trocar totalmente os pods pela nova versão. Contras: a troca de versão pode levar muito tempo.
 - Vamos diminuindo o número de replicas da versão antiga e aumentando o número de replicas da versão nova.
+
+# Traefik
+- Um concorrente do nginx ingresss, a diferença que este possui uma configuração maior, por exemplo: rotas.
