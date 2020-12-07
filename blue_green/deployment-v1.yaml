@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deploy
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: api-deploy
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+      labels:
+        app: api-deploy
+        version: v1
+    spec:
+      containers:
+      - name: api-deploy
+        image: kubedevio/api-versao:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
