@@ -352,3 +352,22 @@ helm dependency build ./api-produto/
 
 ###### Recreate
 - Ele encerra todas as instancias, após finalizar esse processo, ele sobe as novas.
+
+###### Ramped
+- É baseada na troca gradativa da versão antiga pela nova, ou seja, ir tirando a versão antiga e incluindo a nova.
+
+###### Blue / Grees
+- Troca total, ou seja, ele vai criando os pods novos em background, assim que tiverem ok, ele derruba o antigo e substitui pelos novos. Contras: demanda muito recurso.
+- Comando para trocar a versão:
+
+```
+kubectl patch service api-service -p '{"spec":{"selector":{"version":"v2"}}}'
+```
+
+###### Canary
+- Colocar a nova versão com a versão atual, exemplo: a cada 10 requisições que chegar, uma vai para a nova versão, e conforme o sucesso, isso vai aumentando até trocar totalmente os pods pela nova versão. Contras: a troca de versão pode levar muito tempo.
+- Vamos diminuindo o número de replicas da versão antiga e aumentando o número de replicas da versão nova.
+
+# Traefik
+- Um concorrente do nginx ingresss, a diferença que este possui uma configuração maior, por exemplo: rotas.
+- Proxy reverce load balance.
