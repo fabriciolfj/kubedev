@@ -393,4 +393,4 @@ Query(`foo=bar`, `bar=baz`)	Match Query String parameters. It accepts a sequence
 ```
 
 # Cert-manager
-- Gerenciador de certificado para o kubernetes
+- Gerenciador de certificado para o kubernetes (https://cert-manager.io/docs/)
