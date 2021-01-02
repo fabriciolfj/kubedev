@@ -371,3 +371,8 @@ kubectl patch service api-service -p '{"spec":{"selector":{"version":"v2"}}}'
 # Traefik
 - Um concorrente do nginx ingresss, a diferença que este possui uma configuração maior, por exemplo: rotas.
 - Proxy reverce load balance.
+
+### Instalacao do traefik
+- add o repositório via helm: helm repo add traefik https://helm.traefik.io/traefik
+- atualiza o repositorio: helm repo update
+- pega os valores: helm show values traefik/traefik > values.yaml
