@@ -377,3 +377,17 @@ kubectl patch service api-service -p '{"spec":{"selector":{"version":"v2"}}}'
 - atualiza o repositorio: helm repo update
 - pega os valores: helm show values traefik/traefik > values.yaml
 - helm upgrade --install traefik traefik/traefik --namespace=traefik-system
+
+### Tabela referente a critérios de redirecionamento de rotas no traefik.
+```
+Rule	Description
+Headers(`key`, `value`)	Check if there is a key keydefined in the headers, with the value value
+HeadersRegexp(`key`, `regexp`)	Check if there is a key keydefined in the headers, with a value that matches the regular expression regexp
+Host(`example.com`, ...)	Check if the request domain (host header value) targets one of the given domains.
+HostHeader(`example.com`, ...)	Check if the request domain (host header value) targets one of the given domains.
+HostRegexp(`example.com`, `{subdomain:[a-z]+}.example.com`, ...)	Check if the request domain matches the given regexp.
+Method(`GET`, ...)	Check if the request method is one of the given methods (GET, POST, PUT, DELETE, PATCH)
+Path(`/path`, `/articles/{cat:[a-z]+}/{id:[0-9]+}`, ...)	Match exact request path. It accepts a sequence of literal and regular expression paths.
+PathPrefix(`/products/`, `/articles/{cat:[a-z]+}/{id:[0-9]+}`)	Match request prefix path. It accepts a sequence of literal and regular expression prefix paths.
+Query(`foo=bar`, `bar=baz`)	Match Query String parameters. It accepts a sequence of key=value pairs.
+```
