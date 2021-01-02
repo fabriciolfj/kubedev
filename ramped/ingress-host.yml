@@ -9,4 +9,4 @@ spec:
         paths:
           - backend:
               serviceName: green-service
-              servicePort: 80
+              servicePort: 8080

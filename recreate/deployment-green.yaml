@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: green
 spec:
-  replicas: 5
+  replicas: 2
   strategy:
     type: Recreate #mata todos os pods antes de subir (não e ideal)
   selector:
@@ -32,7 +32,7 @@ kind: Service
 metadata:
   name: green-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: green
   ports:
