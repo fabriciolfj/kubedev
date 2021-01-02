@@ -376,3 +376,4 @@ kubectl patch service api-service -p '{"spec":{"selector":{"version":"v2"}}}'
 - add o repositório via helm: helm repo add traefik https://helm.traefik.io/traefik
 - atualiza o repositorio: helm repo update
 - pega os valores: helm show values traefik/traefik > values.yaml
+- helm upgrade --install traefik traefik/traefik --namespace=traefik-system
