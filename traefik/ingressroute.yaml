@@ -5,7 +5,7 @@ metadata:
 spec:
   entrypoints:
     - web
-  router:
+  routes:
     - match: Host(`api.traefik.com`)  #&& Headers(`UserKey`, `teste`)
       kind: Rule
       services:

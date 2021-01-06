@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroute-tls
+spec:
+  entrypoints:
+  - websecure
+  router:
+  - match: Host(`api.traefik.com`)
+    kind: Rule
+    services:
+    - name: nginx-service
+      port: 80
+  tls:
+    secretName: fabricio-net-secret
