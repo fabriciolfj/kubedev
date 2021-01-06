@@ -391,3 +391,7 @@ Path(`/path`, `/articles/{cat:[a-z]+}/{id:[0-9]+}`, ...)	Match exact request pat
 PathPrefix(`/products/`, `/articles/{cat:[a-z]+}/{id:[0-9]+}`)	Match request prefix path. It accepts a sequence of literal and regular expression prefix paths.
 Query(`foo=bar`, `bar=baz`)	Match Query String parameters. It accepts a sequence of key=value pairs.
 ```
+
+# Cert-manager
+- Gerenciador de certificado para o kubernetes (https://cert-manager.io/docs/)
+- Para instalação, consulte https://cert-manager.io/docs/installation/.
