@@ -6,6 +6,13 @@
 ```
 snap install multipass
 ```
+## Minikube
+```
+minikube config set memory 10240
+minikube config set cpus 8
+minikube config set vm-driver virtualbox
+minikube start
+```
 **COMANDOS BÁSICOS**
 
 - multipass launch -n k8s -c (cpu) 2 -m (ram) 4gb -d (disco) 20gb
