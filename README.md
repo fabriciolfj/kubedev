@@ -26,6 +26,7 @@ minikube start --driver=virtualbox  --no-vtx-check
 - multipass recover k8s
 - multipass start k8s
 - multipass delete k8s depois multipass purge, para eliminar realmente.
+- para windows: .\PsExec64.exe -s -i  $env:VBOX_MSI_INSTALL_PATH\VirtualBox.exe
 
 **INSTALANDO AMBIENTE KUBERNETES DENTRO DO MULTIPASS**
 
