@@ -11,7 +11,7 @@ snap install multipass
 minikube config set memory 10240
 minikube config set cpus 8
 minikube config set vm-driver virtualbox
-minikube start
+minikube start --driver=virtualbox  --no-vtx-check
 ```
 **COMANDOS BÁSICOS**
 
