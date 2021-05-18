@@ -415,3 +415,4 @@ sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
 sudo apt-get update
 sudo apt-get install jenkins
 ```
+- Por fim instale o docker na maquina aonde encontra-se o jenkins.
