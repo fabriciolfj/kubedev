@@ -416,3 +416,5 @@ sudo apt-get update
 sudo apt-get install jenkins
 ```
 - Por fim instale o docker na maquina aonde encontra-se o jenkins.
+- De a permissão do usuario jenkins ao docker: usermod -aG docker jenkins
+- Verificar o status do jenkins: systemctl status jenkins
