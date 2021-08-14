@@ -70,6 +70,16 @@ minikube start --driver=virtualbox  --no-vtx-check
 - az login 
 - az aks get-credentials --resource-group kubedev --name kubedev --overwrite-existing (baixar as credenciais)
 
+## Componentes do kubernetes
+- apiserver: expõe uma api restful, que o kubectl por exemplo,utiliza para manipular os artefatos
+- etcd: um store chave/valor, funciona como um banco de dados, que guarda informações do cluster.
+- controller manager: uma série de controladores, que avaliam continuamente o estado desejado, com o estado atual, para os objetos definidos no etcd.
+- scheduler: responsável por atribuir pods recém criados, a um nó com capacidade disponível.
+- kubelet:  garante que o contêiner esteja funcionando, dentro do pod.
+- kube-proxy: encaminha solicitados ao pod, passando pelo serviço (caso tenha mais de um pod, utilzia a estratégia round-robin
+- contêiner runtime: software que executa os contêineresem um nó.
+- kubernetes dns: servidor dns que é usado na rede interna do cluster.
+
 ## Iniciando kubernetes
 
 - Ao criar o manifesto, para saber qual api version utilizar em qual recurso, execute o comando abaixo e veja se possui algum dado na coluna apigroup. Caso esteja ausente, use v1.
