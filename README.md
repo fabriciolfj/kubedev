@@ -30,7 +30,7 @@ minikube start --driver=virtualbox  --no-vtx-check
 
 **INSTALANDO AMBIENTE KUBERNETES DENTRO DO MULTIPASS**
 
-- multipass exec k8s -- sudo snap install microk8s --classic --channel=1.18/stable
+- multipass exec k8s -- sudo snap install microk8s --classic --channel=1.22/stable
 - multipass exec k8s -- sudo usermod -a -G microk8s ubuntu
 - multipass exec k8s -- sudo chown -f -R ubuntu ~/.kube
 - multipass restart k8s
