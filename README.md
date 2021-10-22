@@ -302,6 +302,11 @@ Exemplo: nginx.
 - Para o microk8s, execute o comando: microk8s.enabled ingress ou faça a instalação bare metal
 - Outra opção seria instalar seguindo o site: https://kubernetes.github.io/ingress-nginx/deploy
 
+- Aplicando um controlador de exemplo:
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.41.2/deploy/static/provider/cloud/deploy.yaml
+```
+
 # HELM
 Um gerenciador de pacotes, com base em template (chamados de chart), que utilizo dentro do kubernetes.
 
