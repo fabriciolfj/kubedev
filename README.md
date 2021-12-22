@@ -168,7 +168,8 @@ echo 'bGludXhoaW50LmNvbQo=' | base64 --decode
 
 ###### Persistent volume
 
-- Uso o persistent volume, vinculo a um persistent claim e vinculo este a um deployment.
+- Uso o persistent volume, para manter os dados de uma aplicação ou recurso stateful
+- para vincular meu persistent volume a um deployment, faz uso do pvc, seja, persistent volume claim 
 - Para uso em multiplos nodes, use um storageclass, onde criará um pv dinâmico e distributído (os serviços de number provêm tal recurso).
 Comandos:
 ```
